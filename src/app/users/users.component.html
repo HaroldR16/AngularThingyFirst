@@ -1,9 +1,10 @@
 <div class="content-wrapper">
     <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">User Form</h5>
+        </div>
         <div class="card-body">
 
-            <h5 class="card-title">User Form</h5>
-            
             <form [formGroup]="userForm">
                 <label>Fullname</label>
                 <input id="fullName" formControlName="fullName" type="text" class="form-control" placeholder="fullName">
@@ -11,10 +12,10 @@
                     <div *ngIf = "getControl.fullName.errors?.required">
                         fullName cant be empty
                     </div>
-                    <div *ngIf = "getControl.fullName.errors?.minlenght">
+                    <div *ngIf = "getControl.fullName.errors?.minlength">
                         Not enough characters
                     </div>
-                    <div *ngIf = "getControl.fullName.errors?.maxlenght">
+                    <div *ngIf = "getControl.fullName.errors?.maxlength">
                         Characters out of the limit
                     </div>
                 </div>
@@ -25,27 +26,33 @@
                     <div *ngIf = "getControl.username.errors?.required">
                         Username cant be empty
                     </div>
-                    <div *ngIf = "getControl.username.errors?.minlenght">
+                    <div *ngIf = "getControl.username.errors?.minlength">
                         Not enough characters
                     </div>
-                    <div *ngIf = "getControl.username.errors?.maxlenght">
+                    <div *ngIf = "getControl.username.errors?.maxlength">
                         Characters out of the limit
                     </div>
                 </div>
 
                 <label>Email</label>
-                <input id="email" formControlName="email" type="text" class="form-control" placeholder="email">
+                <input id="email" formControlName="email" type="email" class="form-control" placeholder="email">
                 <div *ngIf ="getControl.email.invalid && (getControl.email.dirty || getControl.email.touched)" class="aler alert-danger">
                     <div *ngIf = "getControl.email.errors?.required">
                         email cant be empty
                     </div>
-                    <div *ngIf = "getControl.email.errors?.minlenght">
+                    <div *ngIf = "getControl.email.errors?.minlength">
                         Not enough characters
+                    </div>
+                    <div *ngIf = "getControl.email.errors?.email">
+                        Type a correct email
                     </div>
                 </div>
 
                 <label>Phone</label>
-                <input id="phone" formControlName="phone" type="text" class="form-control" placeholder="phone">
+                <input id="phone" formControlName="phone" type="number" class="form-control" placeholder="phone">
+                <div *ngIf ="getControl.phone.errors?.pattern" class="aler alert-danger">
+                    Type a correct phone number
+                </div>
             </form>
 
         </div>
