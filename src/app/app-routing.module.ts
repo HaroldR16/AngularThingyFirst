@@ -13,6 +13,11 @@ const routes: Routes = [
     path:'users',
     component: UsersComponent,
     pathMatch:"full"
+  },
+  {
+    path:'home',
+    component: HomeComponent,
+    pathMatch:"full"
   }
 ];
 
